@@ -1,5 +1,7 @@
 # flutter_animation_playground
 
+![Alt Text](https://github.com/OrlandoEduardo101/flutter_animation_playground/blob/master/Screen%20Recording%202022-03-14%20at%2019.22.40.gif?raw=true)
+
 A new Flutter project.
 
 ## Getting Started
