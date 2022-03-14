@@ -58,19 +58,19 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
       }
 
       if (containerTopPosition == 0) {
-        containerTopPosition = 180;
-      } else if (containerTopPosition == 180) {
+        containerTopPosition = 480;
+      } else if (containerTopPosition == 480) {
         containerTopPosition = 80;
       } else {
         containerTopPosition = 0;
       }
 
       if (containerLeftPosition == 0) {
-        containerLeftPosition = 180;
-      } else if (containerLeftPosition == 180) {
+        containerLeftPosition = 480;
+      } else if (containerLeftPosition == 480) {
         containerLeftPosition = 0;
       } else if (containerLeftPosition == 80) {
-        containerLeftPosition = 180;
+        containerLeftPosition = 480;
       } else {
         containerLeftPosition = 80;
       }
@@ -103,7 +103,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
         vsync: this,
         value: value,
         lowerBound: value,
-        upperBound: 100,
+        upperBound: 100, 
         duration: const Duration(milliseconds: 5000));
     animationController.addListener(() {
       setState(() {
@@ -130,22 +130,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
         child: Stack(
           alignment: Alignment.center,
           children: <Widget>[
-            AnimatedPositioned(
-              top: containerTopPosition,
-              left: containerLeftPosition,
-              duration: const Duration(milliseconds: 500),
-              child: InkWell(
-                onTap: _updateContainer,
-                child: AnimatedContainer(
-                  margin: const EdgeInsets.all(8.0),
-                  duration: const Duration(milliseconds: 500),
-                  height: containerHeight,
-                  width: containerwidth,
-                  decoration:
-                      BoxDecoration(color: containerColor, shape: shape),
-                ),
-              ),
-            ),
+            // controlada
             Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
@@ -181,6 +166,24 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                 })
               ],
             ),
+            //implicita
+            AnimatedPositioned(
+              top: containerTopPosition,
+              left: containerLeftPosition,
+              duration: const Duration(milliseconds: 500),
+              child: InkWell(
+                onTap: _updateContainer,
+                child: AnimatedContainer(
+                  margin: const EdgeInsets.all(8.0),
+                  duration: const Duration(milliseconds: 500),
+                  height: containerHeight,
+                  width: containerwidth,
+                  decoration:
+                      BoxDecoration(color: containerColor, shape: shape),
+                ),
+              ),
+            ),
+
           ],
         ),
       ),
