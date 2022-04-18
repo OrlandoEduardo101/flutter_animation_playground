@@ -23,7 +23,7 @@ class _NewPage2State extends State<NewPage2> {
             child: Container(
               width: 300,
               height: 200,
-              color: Colors.green,
+              color: Colors.blue,
             ),
           ),
         ),
