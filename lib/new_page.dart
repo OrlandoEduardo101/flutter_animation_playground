@@ -24,6 +24,7 @@ class _NewPageState extends State<NewPage> {
             tag: 'container-$index',
             child: Material(
               child: InkWell(
+                key: Key('InkWell-$index'),
                 onTap: () async {
                   // Navigator.push(
                   //   context, MaterialPageRoute(builder: (context) => NewPage2(index: index)));
@@ -33,7 +34,10 @@ class _NewPageState extends State<NewPage> {
                       pageBuilder: (BuildContext context,
                           Animation<double> animation,
                           Animation<double> secondaryAnimation) {
-                        return NewPage2(index: index);
+                        return NewPage2(index: index, user: {
+                          'name': 'Orlando - $index'
+                        },
+                        );
                       },
                       transitionsBuilder: (BuildContext context,
                           Animation<double> animation,

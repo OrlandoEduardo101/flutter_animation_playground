@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class NewPage2 extends StatefulWidget {
-  const NewPage2({Key? key,  required this.index}) : super(key: key);
+  const NewPage2({Key? key, required this.index, required this.user}) : super(key: key);
+  final Map user;
 
   final int index;
 
@@ -23,7 +24,8 @@ class _NewPage2State extends State<NewPage2> {
             child: Container(
               width: 300,
               height: 200,
-              color: Colors.blue,
+              color: Colors.green,
+              child: Text('${widget.user['name']}'),
             ),
           ),
         ),
@@ -31,7 +33,9 @@ class _NewPage2State extends State<NewPage2> {
       floatingActionButton: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
-          const SizedBox(height: 20,),
+          const SizedBox(
+            height: 20,
+          ),
           FloatingActionButton(
             onPressed: () {
               Navigator.pop(context);

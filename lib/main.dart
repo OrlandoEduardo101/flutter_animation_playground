@@ -103,8 +103,9 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
         vsync: this,
         value: value,
         lowerBound: value,
-        upperBound: 100, 
+        upperBound: 100,
         duration: const Duration(milliseconds: 5000));
+
     animationController.addListener(() {
       setState(() {
         value = animationController.value;
@@ -174,6 +175,10 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
               child: InkWell(
                 onTap: _updateContainer,
                 child: AnimatedContainer(
+                  onEnd: () {
+                    // _updateContainer();
+                  },
+                  
                   margin: const EdgeInsets.all(8.0),
                   duration: const Duration(milliseconds: 500),
                   height: containerHeight,
@@ -183,7 +188,6 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                 ),
               ),
             ),
-
           ],
         ),
       ),
@@ -195,12 +199,14 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
             tooltip: 'Run',
             child: const Icon(Icons.play_arrow),
           ),
-          const SizedBox(height: 20,),
+          const SizedBox(
+            height: 20,
+          ),
           //Hero Demo
           FloatingActionButton(
             onPressed: () {
-              Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => const NewPage()));
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const NewPage()));
             },
             tooltip: 'Next',
             child: const Icon(Icons.next_plan_outlined),
