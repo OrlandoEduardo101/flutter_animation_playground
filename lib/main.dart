@@ -95,7 +95,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
         // containerHeight3 = 100;
         // containerwidth3 = 100;
       } else {
-        containerBorderRadius3 = 80;
+        containerBorderRadius3 = 40;
         containerOpacity3 = 1;
         // containerHeight3 = 250;
         // containerwidth3 = 250;
