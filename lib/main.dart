@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animation_playground/animated_list.dart';
 import 'package:flutter_animation_playground/new_page.dart';
 
 void main() {
@@ -104,32 +105,32 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
   }
 
   //controladas
-  late AnimationController animationController;
-  double value = 0.0;
+  // late AnimationController animationController;
+  // double value = 0.0;
 
-  @override
-  void initState() {
-    super.initState();
-    animationController = AnimationController(
-        vsync: this,
-        value: value,
-        lowerBound: value,
-        upperBound: 100,
-        duration: const Duration(milliseconds: 5000));
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   animationController = AnimationController(
+  //       vsync: this,
+  //       value: value,
+  //       lowerBound: value,
+  //       upperBound: 100,
+  //       duration: const Duration(milliseconds: 5000));
 
-    animationController.addListener(() {
-      setState(() {
-        value = animationController.value;
-      });
-    });
-  }
+  //   animationController.addListener(() {
+  //     setState(() {
+  //       value = animationController.value;
+  //     });
+  //   });
+  // }
 
-  dynamic run() {
-    if (animationController.isCompleted) {
-      return animationController.reverse();
-    }
-    return animationController.forward();
-  }
+  // dynamic run() {
+  //   if (animationController.isCompleted) {
+  //     return animationController.reverse();
+  //   }
+  //   return animationController.forward();
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -143,39 +144,39 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
           alignment: Alignment.center,
           children: <Widget>[
             // controlada
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                const SizedBox(
-                  height: 300,
-                ),
-                Text(
-                  'Download progress',
-                  style: Theme.of(context).textTheme.headline6,
-                ),
-                const SizedBox(
-                  height: 15,
-                ),
-                Text(
-                  '${value.toStringAsFixed(2)} %',
-                  style: Theme.of(context).textTheme.headline4,
-                ),
-                const SizedBox(
-                  height: 15,
-                ),
-                LayoutBuilder(builder: (context, constraits) {
-                  return Align(
-                    alignment: Alignment.centerLeft,
-                    child: Container(
-                      width: value * (constraits.maxWidth / 100),
-                      height: 20,
-                      color: Colors.green,
-                    ),
-                  );
-                })
-              ],
-            ),
+            // Column(
+            //   crossAxisAlignment: CrossAxisAlignment.center,
+            //   mainAxisAlignment: MainAxisAlignment.end,
+            //   children: [
+            //     const SizedBox(
+            //       height: 300,
+            //     ),
+            //     Text(
+            //       'Download progress',
+            //       style: Theme.of(context).textTheme.headline6,
+            //     ),
+            //     const SizedBox(
+            //       height: 15,
+            //     ),
+            //     Text(
+            //       '${value.toStringAsFixed(2)} %',
+            //       style: Theme.of(context).textTheme.headline4,
+            //     ),
+            //     const SizedBox(
+            //       height: 15,
+            //     ),
+            //     LayoutBuilder(builder: (context, constraits) {
+            //       return Align(
+            //         alignment: Alignment.centerLeft,
+            //         child: Container(
+            //           width: value * (constraits.maxWidth / 100),
+            //           height: 20,
+            //           color: Colors.green,
+            //         ),
+            //       );
+            //     })
+            //   ],
+            // ),
             //implicita
             //Container #1
             AnimatedPositioned(
@@ -193,8 +194,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                   duration: const Duration(milliseconds: 800),
                   height: containerHeight1,
                   width: containerwidth1,
-                  decoration:
-                      BoxDecoration(color: containerColor1, shape: shape1),
+                  decoration: BoxDecoration(color: containerColor1, shape: shape1),
                 ),
               ),
             ),
@@ -212,8 +212,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                 duration: const Duration(milliseconds: 800),
                 height: containerHeight2,
                 width: containerwidth2,
-                decoration:
-                    BoxDecoration(color: containerColor2, shape: shape2),
+                decoration: BoxDecoration(color: containerColor2, shape: shape2),
               ),
             ),
 
@@ -247,10 +246,21 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
       floatingActionButton: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
+          // FloatingActionButton(
+          //   onPressed: run,
+          //   tooltip: 'Run',
+          //   child: const Icon(Icons.play_arrow),
+          // ),
+          const SizedBox(
+            height: 20,
+          ),
+          //Animated List Demo
           FloatingActionButton(
-            onPressed: run,
-            tooltip: 'Run',
-            child: const Icon(Icons.play_arrow),
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) => const AnimatedListSample()));
+            },
+            tooltip: 'Animated List',
+            child: const Icon(Icons.list),
           ),
           const SizedBox(
             height: 20,
@@ -258,8 +268,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
           //Hero Demo
           FloatingActionButton(
             onPressed: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const NewPage()));
+              Navigator.push(context, MaterialPageRoute(builder: (context) => const NewPage()));
             },
             tooltip: 'Next',
             child: const Icon(Icons.next_plan_outlined),
