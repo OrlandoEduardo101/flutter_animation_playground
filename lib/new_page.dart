@@ -16,13 +16,12 @@ class _NewPageState extends State<NewPage> {
       return UserModel(
         name: 'User - $index',
         urlImage:
-            'https://scontent.faju2-1.fna.fbcdn.net/v/t39.30808-6/243185557_245429147632924_930548288359768216_n.png?_nc_cat=109&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=ObuQH_XALBQAX_PdAgY&tn=Bej6TOLt_27R1Svi&_nc_ht=scontent.faju2-1.fna&oh=00_AT8FmT1vAFGRaxgjLTgvSVPb9Dv1HPmicUX5ewAn1_Tieg&oe=62A20E2B',
+            'https://media.licdn.com/dms/image/C4D0BAQGN6mX4vupfPg/company-logo_200_200/0/1671656697345?e=2147483647&v=beta&t=z-6QxQIlCKluGCIxOpGhBYThHZ7-MX1qAC9t31mxLhM',
       );
     }
     return UserModel(
       name: 'User - $index',
-      urlImage:
-          'https://yt3.ggpht.com/ytc/AKedOLQi9UpqABoSJK_Dw9LsULNHizpYfEaRya5437Wv=s900-c-k-c0x00ffffff-no-rj',
+      urlImage: 'https://yt3.ggpht.com/ytc/AKedOLQi9UpqABoSJK_Dw9LsULNHizpYfEaRya5437Wv=s900-c-k-c0x00ffffff-no-rj',
     );
   });
   @override
@@ -50,18 +49,15 @@ class _NewPageState extends State<NewPage> {
                   await Navigator.of(context).push(
                     PageRouteBuilder(
                       transitionDuration: const Duration(milliseconds: 1500),
-                      pageBuilder: (BuildContext context,
-                          Animation<double> animation,
-                          Animation<double> secondaryAnimation) {
+                      pageBuilder:
+                          (BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation) {
                         return NewPage2(
                           index: index,
                           user: item,
                         );
                       },
-                      transitionsBuilder: (BuildContext context,
-                          Animation<double> animation,
-                          Animation<double> secondaryAnimation,
-                          Widget child) {
+                      transitionsBuilder: (BuildContext context, Animation<double> animation,
+                          Animation<double> secondaryAnimation, Widget child) {
                         return Align(
                           child: FadeTransition(
                             opacity: animation,
